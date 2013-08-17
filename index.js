@@ -1,13 +1,5 @@
 
 /**
- * Module dependencies.
- */
-
-var send = require('send');
-var path = require('path');
-var resolve = path.resolve;
-
-/**
  * Expose `responseTime()`.
  */
 
