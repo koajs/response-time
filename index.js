@@ -1,4 +1,3 @@
-
 /**
  * Expose `responseTime()`.
  */
@@ -15,9 +14,9 @@ module.exports = responseTime;
 function responseTime() {
   return function(next){
     return function *(){
-      var start = new Date;
+      var start = Date.now();
       yield next;
-      var delta = new Date - start;
+      var delta = Date.now() - start;
       this.set('X-Response-Time', delta + 'ms');
     }
   }
