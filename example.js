@@ -5,12 +5,10 @@ var app = koa();
 
 app.use(responseTime());
 
-app.use(function(next){
-  return function *(){
-    yield next;
-    yield sleep(150);
-    this.body = 'Hello';
-  }
+app.use(function *(next){
+  yield next;
+  yield sleep(150);
+  this.body = 'Hello';
 });
 
 function sleep(ms) {
