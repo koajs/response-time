@@ -2,9 +2,16 @@
   "name": "koa-response-time",
   "description": "X-Repsonse-Time middleware for koa",
   "repository": "koajs/response-time",
-  "version": "1.0.1",
-  "keywords": ["koa", "middleware", "response", "duration"],
-  "files": ["index.js"],
+  "version": "1.0.2",
+  "keywords": [
+    "koa",
+    "middleware",
+    "response",
+    "duration"
+  ],
+  "files": [
+    "index.js"
+  ],
   "devDependencies": {
     "koa": "*"
   },
