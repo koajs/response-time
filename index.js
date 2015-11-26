@@ -12,10 +12,11 @@ module.exports = responseTime;
  */
 
 function responseTime() {
-  return function *responseTime(next){
+  return function responseTime(ctx, next){
     var start = Date.now();
-    yield* next;
-    var delta = Math.ceil(Date.now() - start);
-    this.set('X-Response-Time', delta + 'ms');
+    return next().then(function () {
+      var delta = Math.ceil(Date.now() - start);
+      ctx.set('X-Response-Time', delta + 'ms');
+    });
   }
 }
