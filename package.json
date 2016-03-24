@@ -2,7 +2,7 @@
   "name": "koa-response-time",
   "description": "X-Repsonse-Time middleware for koa",
   "repository": "koajs/response-time",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "keywords": [
     "koa",
     "middleware",
@@ -14,6 +14,9 @@
   ],
   "devDependencies": {
     "koa": "*"
+  },
+  "publishConfig": {
+    "tag": "next"
   },
   "license": "MIT"
 }
