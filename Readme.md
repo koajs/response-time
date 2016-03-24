@@ -1,9 +1,7 @@
 
 # koa-response-time
 
- X-Response-Time middleware for koa.
-
-___Notice: `koa-response-time@2` supports `koa@2`; if you want to use this module with `koa@1`, please use `koa-response-time@1`.___
+ X-Response-Time middleware for Koa v2.
 
 ## Installation
 
