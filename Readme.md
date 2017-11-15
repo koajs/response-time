@@ -1,6 +1,8 @@
 
 # koa-response-time
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/koajs/response-time.svg)](https://greenkeeper.io/)
+
  X-Response-Time middleware for Koa v2.
 
 ## Installation
