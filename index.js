@@ -6,18 +6,18 @@ module.exports = responseTime;
 
 /**
  * Add X-Response-Time header field.
- * @param {Dictionary} options options dictionary. { highResolution }
+ * @param {Dictionary} options options dictionary. { hrtime }
  *
- *        highResolution: boolean.
- *          `true` to return time in nanoseconds.
- *          `false` to return time in milliseconds.
+ *        hrtime: boolean.
+ *          `true` to use time in nanoseconds.
+ *          `false` to use time in milliseconds.
  *          Default is `false` to keep back compatible.
  * @return {Function}
  * @api public
  */
 
 function responseTime(options) {
-  var highResolution = options && options.highResolution;
+  var hrtime = options && options.hrtime;
   return function responseTime(ctx, next){
     var start = process.hrtime();
     return next().then(function () {
@@ -25,9 +25,9 @@ function responseTime(options) {
 
       // Format to high resolution time with nano time
       delta = delta[0] * 1000 + delta[1]/1000000;
-      if (!highResolution) {
+      if (!hrtime) {
         // truncate to milliseconds.
-        delta = delta.toFixed(3);
+        delta = Math.round(delta);
       }
       ctx.set('X-Response-Time', delta + 'ms');
     });

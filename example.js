@@ -3,7 +3,7 @@ var responseTime = require('./');
 var Koa = require('koa');
 var app = new Koa();
 
-app.use(responseTime());
+app.use(responseTime({hrtime: true}));
 
 app.use(function (ctx, next){
   return next().then(function () {
