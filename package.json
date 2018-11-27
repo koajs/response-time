@@ -3,6 +3,9 @@
   "description": "X-Repsonse-Time middleware for koa",
   "repository": "koajs/response-time",
   "version": "2.0.0",
+  "scripts": {
+    "lint": "eslint . --fix"
+  },
   "keywords": [
     "koa",
     "middleware",
@@ -13,6 +16,13 @@
     "index.js"
   ],
   "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-koa": "^2.0.2",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "koa": "^2.6.2"
   },
   "license": "MIT"
