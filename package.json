@@ -15,8 +15,5 @@
   "devDependencies": {
     "koa": "*"
   },
-  "publishConfig": {
-    "tag": "next"
-  },
   "license": "MIT"
 }
