@@ -16,9 +16,9 @@ $ npm install koa-response-time
   Basic usage:
 
 ```js
-var Koa = require('koa');
-var responseTime = require('koa-response-time');
-var app = new Koa();
+const Koa = require('koa');
+const responseTime = require('koa-response-time');
+const app = new Koa();
 
 app.use(responseTime());
 ```
@@ -26,7 +26,7 @@ app.use(responseTime());
   If you need response high resolution in nano time, set `hrtime` option to `true`:
 
 ```js
-app.use(responseTime(hrtime: true));
+app.use(responseTime({ hrtime: true }));
 ```
 
 
