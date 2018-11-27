@@ -2,7 +2,7 @@
   "name": "koa-response-time",
   "description": "X-Repsonse-Time middleware for koa",
   "repository": "koajs/response-time",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "scripts": {
     "lint": "eslint . --fix",
     "test": "mocha --exit"
