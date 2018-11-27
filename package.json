@@ -4,7 +4,8 @@
   "repository": "koajs/response-time",
   "version": "2.0.0",
   "scripts": {
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "test": "mocha --exit"
   },
   "keywords": [
     "koa",
@@ -23,7 +24,9 @@
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "koa": "^2.6.2"
+    "koa": "^2.6.2",
+    "mocha": "^5.2.0",
+    "supertest": "^3.3.0"
   },
   "license": "MIT"
 }
