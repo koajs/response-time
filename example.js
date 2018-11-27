@@ -1,21 +1,21 @@
 
-var responseTime = require('./');
-var Koa = require('koa');
-var app = new Koa();
+let responseTime = require('./');
+let Koa = require('koa');
+let app = new Koa();
 
-app.use(responseTime({hrtime: true}));
+app.use(responseTime({ hrtime: true }));
 
-app.use(function (ctx, next){
-  return next().then(function () {
+app.use((ctx, next) => {
+  return next().then(() => {
     return sleep(150);
-  }).then(function () {
+  }).then(() => {
     ctx.body = 'Hello';
   });
 });
 
 function sleep(ms) {
-  return new Promise(function(resolve, reject) {
-    setTimeout(function done() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
       resolve();
     }, ms);
   });

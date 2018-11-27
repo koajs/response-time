@@ -17,19 +17,19 @@ module.exports = responseTime;
  */
 
 function responseTime(options) {
-  var hrtime = options && options.hrtime;
-  return function responseTime(ctx, next){
-    var start = process.hrtime();
-    return next().then(function () {
-      var delta = process.hrtime(start);
+  let hrtime = options && options.hrtime;
+  return function responseTime(ctx, next) {
+    let start = process.hrtime();
+    return next().then(() => {
+      let delta = process.hrtime(start);
 
       // Format to high resolution time with nano time
-      delta = delta[0] * 1000 + delta[1]/1000000;
+      delta = delta[0] * 1000 + delta[1] / 1000000;
       if (!hrtime) {
         // truncate to milliseconds.
         delta = Math.round(delta);
       }
       ctx.set('X-Response-Time', delta + 'ms');
     });
-  }
+  };
 }
