@@ -13,7 +13,7 @@
     "index.js"
   ],
   "devDependencies": {
-    "koa": "*"
+    "koa": "^2.6.2"
   },
   "license": "MIT"
 }
