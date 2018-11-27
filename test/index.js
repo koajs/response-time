@@ -24,7 +24,7 @@ describe('Test koa response time', () => {
 
     return request(app.listen())
       .get('/')
-      .expect('x-response-time', /^[0-9]{1,3}.[0-9]{6}ms$/)
+      .expect('x-response-time', /^[0-9]{1,3}.[0-9]{3,6}ms$/)
       .expect(404);
   });
 });
