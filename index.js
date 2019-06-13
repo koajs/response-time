@@ -19,7 +19,7 @@ module.exports = responseTime;
 function responseTime(options) {
   let hrtime = options && options.hrtime;
   return function responseTime(ctx, next) {
-    let start = process.hrtime();
+    let start = ctx[Symbol.for('request-received.startAt')] ? ctx[Symbol.for('request-received.startAt')] : process.hrtime();
     return next().then(() => {
       let delta = process.hrtime(start);
 
