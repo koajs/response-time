@@ -3,7 +3,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/koajs/response-time.svg)](https://greenkeeper.io/)
 
-  X-Response-Time middleware for Koa.
+ X-Response-Time middleware for [koa](https://github.com/koajs/koa).  Compatible with [request-received](https://github.com/cabinjs/request-received).
 
 ## Installation
 
