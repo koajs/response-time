@@ -27,4 +27,17 @@ describe('Test koa response time', () => {
       .expect('x-response-time', /^[0-9]{1,3}.[0-9]{3,6}ms$/)
       .expect(404);
   });
+
+  it('custom header name', () => {
+    const app = new Koa();
+
+    app.use(responseTime({
+      header: "Response-Time"
+    }));
+
+    return request(app.listen())
+      .get('/')
+      .expect('response-time', /^[0-9]{1,3}ms$/)
+      .expect(404);
+  });
 });
