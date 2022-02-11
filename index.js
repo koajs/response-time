@@ -29,7 +29,7 @@ function responseTime(options) {
         // truncate to milliseconds.
         delta = Math.round(delta);
       }
-      ctx.set('X-Response-Time', delta + 'ms');
+      ctx.set((options && options.header) || 'X-Response-Time', delta + 'ms');
     });
   };
 }
