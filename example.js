@@ -1,7 +1,7 @@
 
-let responseTime = require('./');
-let Koa = require('koa');
-let app = new Koa();
+const responseTime = require('./');
+const Koa = require('koa');
+const app = new Koa();
 
 app.use(responseTime({ hrtime: true }));
 
