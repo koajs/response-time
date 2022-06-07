@@ -1,10 +1,4 @@
 /**
- * Expose `responseTime()`.
- */
-
-module.exports = responseTime;
-
-/**
  * Add X-Response-Time header field.
  * @param {Dictionary} options options dictionary. { hrtime }
  *
@@ -15,21 +9,23 @@ module.exports = responseTime;
  * @return {Function}
  * @api public
  */
-
 function responseTime(options) {
-  let hrtime = options && options.hrtime;
-  return function responseTime(ctx, next) {
-    let start = ctx[Symbol.for('request-received.startAt')] ? ctx[Symbol.for('request-received.startAt')] : process.hrtime();
-    return next().then(() => {
-      let delta = process.hrtime(start);
-
-      // Format to high resolution time with nano time
-      delta = delta[0] * 1000 + delta[1] / 1000000;
-      if (!hrtime) {
-        // truncate to milliseconds.
-        delta = Math.round(delta);
-      }
-      ctx.set('X-Response-Time', delta + 'ms');
-    });
+  const hrtime = options && options.hrtime;
+  return async function responseTime(ctx, next) {
+    const start = ctx[Symbol.for('request-received.startAt')]
+      ? BigInt(ctx[Symbol.for('request-received.startAt')])
+      : process.hrtime.bigint();
+    await next();
+    const delta = Number(process.hrtime.bigint() - start) / 1000000;
+    ctx.set(
+      'X-Response-Time',
+      `${hrtime ? delta : Math.round(delta)}ms`
+    );
   };
 }
+
+/**
+ * Expose `responseTime()`.
+ */
+
+module.exports = responseTime;
