@@ -22,6 +22,7 @@ const defaultProps = { hrtime: false };
  */
 function responseTime(options = defaultProps) {
   const hrtime = options && options.hrtime;
+  const header = (options && options.header) || 'X-Response-Time';
   return function responseTime(ctx, next) {
     const start = ctx[Symbol.for('request-received.startAt')]
       ? ctx[Symbol.for('request-received.startAt')]
@@ -34,7 +35,7 @@ function responseTime(options = defaultProps) {
         // truncate to milliseconds.
         delta = Math.round(delta);
       }
-      ctx.set((options && options.header) || 'X-Response-Time', delta + 'ms');
+      ctx.set(header, delta + 'ms');
     });
   };
 }
